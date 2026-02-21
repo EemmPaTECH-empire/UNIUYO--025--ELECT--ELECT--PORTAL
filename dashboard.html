@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="top-header">
+  <h1 id="welcome"></h1>
+  <p>Student Dashboard</p>
+</header>
+
+<main style="text-align:center">
+  <a href="attendance.html">Mark Attendance</a><br><br>
+  <button class="logout-btn" onclick="logout()">Logout</button>
+</main>
+
+<script>
+const reg = localStorage.getItem("currentStudent");
+const students = JSON.parse(localStorage.getItem("students"));
+
+if (!reg || !students[reg]) location.href = "index.html";
+welcome.innerText = "Welcome, " + students[reg].name;
+
+function logout() {
+  localStorage.removeItem("currentStudent");
+  location.href = "index.html";
+}
+</script>
+
+</body>
+</html>
